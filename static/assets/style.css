@@ -459,6 +459,9 @@ kbd {
 
 .prose { max-width: var(--prose-max); }
 .prose-center { margin-left: auto; margin-right: auto; }
+/* For pages whose substance is code and terminal output, where the 44rem
+ * reading measure would put almost every sample into horizontal scroll. */
+.prose-wide { max-width: 58rem; }
 .prose ul, .prose ol { padding-left: 1.5rem; }
 .prose li { margin-bottom: 0.35rem; }
 

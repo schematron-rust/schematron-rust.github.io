@@ -170,6 +170,7 @@ SCHEMATRON_SKELETON=/tmp/skeleton cargo test --test differential -- --ignored`}<
 
   <p style="margin-top: 2rem;">
     <a class="button button-primary" href={specUrl('conformance.md')}>The authoritative conformance document</a>
+    <a class="button button-secondary" href="/roadmap/">What is next, and what is not planned</a>
     <a class="button button-secondary" href="/spec/">The whole specification</a>
   </p>
 </section>

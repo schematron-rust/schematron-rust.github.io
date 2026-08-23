@@ -76,5 +76,6 @@ cargo +1.94 test --all-features`}</code></pre>
   <p style="margin-top: 2rem;">
     <a class="button button-primary" href={REPO}>Browse the repository</a>
     <a class="button button-secondary" href="/conformance/">Conformance summary</a>
+    <a class="button button-secondary" href="/roadmap/">Roadmap</a>
   </p>
 </section>

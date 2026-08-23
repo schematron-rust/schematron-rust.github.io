@@ -260,6 +260,12 @@ cat data.xml | schematron -s rules.sch -`}</code></pre>
       </p>
     </Card>
   </div>
+
+  <div class="button-row">
+    <a class="button button-secondary" href="/example/">Follow a real run, end to end &rarr;</a>
+    <a class="button button-secondary" href="/reports/">See SVRL, JSON, and text output &rarr;</a>
+    <a class="button button-secondary" href="/roadmap/">Read the roadmap &rarr;</a>
+  </div>
 </section>
 
 <section class="section prose prose-center" aria-label="Common questions">

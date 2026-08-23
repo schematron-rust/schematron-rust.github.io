@@ -10,8 +10,10 @@
     { href: '/', label: 'Home' },
     { href: '/why/', label: 'Why' },
     { href: '/tutorial/', label: 'Tutorial' },
+    { href: '/example/', label: 'Example' },
     { href: '/library/', label: 'Library' },
     { href: '/cli/', label: 'CLI' },
+    { href: '/reports/', label: 'Reports' },
     { href: '/conformance/', label: 'Conformance' },
     { href: '/spec/', label: 'Spec' },
     { href: '/help/', label: 'Help' },
@@ -57,6 +59,7 @@
       <a href="https://crates.io/crates/schematron">crates.io</a>
       <a href="https://docs.rs/schematron">docs.rs</a>
       <a href="/spec/">Specification</a>
+      <a href="/roadmap/">Roadmap</a>
       <a href="/about/">About</a>
     </div>
   </div>

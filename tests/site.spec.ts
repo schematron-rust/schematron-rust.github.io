@@ -1,18 +1,23 @@
 import { test, expect } from '@playwright/test';
 
+// `nav: false` marks a page reachable by cross-link and footer only, so the
+// header stays to one row. Such a page has no aria-current link to check.
 const PAGES = [
   { path: '/', heading: 'Schematron in pure Rust.' },
   { path: '/why/', heading: 'Why this crate' },
   { path: '/tutorial/', heading: 'Tutorial' },
+  { path: '/example/', heading: 'Worked example' },
   { path: '/library/', heading: 'Library' },
   { path: '/cli/', heading: 'Command line' },
+  { path: '/reports/', heading: 'Reports' },
   { path: '/conformance/', heading: 'Conformance' },
+  { path: '/roadmap/', heading: 'Roadmap', nav: false },
   { path: '/spec/', heading: 'Specification' },
   { path: '/help/', heading: 'Help' },
   { path: '/about/', heading: 'About' }
 ];
 
-for (const { path, heading } of PAGES) {
+for (const { path, heading, nav = true } of PAGES) {
   test.describe('page: ' + path, () => {
     test('responds with a non-error status', async ({ page }) => {
       const res = await page.goto(path);
@@ -28,10 +33,20 @@ for (const { path, heading } of PAGES) {
     });
 
     test('marks its own nav link as the current page', async ({ page }) => {
+      test.skip(!nav, 'not in the header nav');
       await page.goto(path);
       const current = page.locator('.site-nav a[aria-current="page"]');
       await expect(current).toHaveCount(1);
       await expect(current).toHaveAttribute('href', path);
+    });
+
+    test('is reachable from at least one other page', async ({ page }) => {
+      test.skip(path === '/', 'the home page is the root');
+      await page.goto('/');
+      const fromAnywhere = nav
+        ? page.locator(`.site-nav a[href="${path}"]`)
+        : page.locator(`a[href="${path}"]`);
+      await expect(fromAnywhere.first()).toHaveCount(1);
     });
 
     test('offers a skip link to the main landmark', async ({ page }) => {
